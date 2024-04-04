@@ -9,7 +9,7 @@ import pickle
 
 def create_model(alg):
     """Creates a model using the algorithm provided. Output serialised using pickle.
-
+    
     Args:
     alg: either lr (LogisticRegression) or dt (DecisionTreeClassifier)
 
@@ -17,11 +17,9 @@ def create_model(alg):
     .pkl Pickled model
 
     """
-    # Check if the model.pkl file exists
+    # Check if the model.pkl file exists, create it if it doesn't
     path_exists = Path.exists(Path(__file__).parent.joinpath("model.pkl"))
-
     if not path_exists:
-        # Read the data into a DataFrame
         iris_file = Path(__file__).parent.joinpath("data", "iris.csv")
         df = pd.read_csv(iris_file)
 
